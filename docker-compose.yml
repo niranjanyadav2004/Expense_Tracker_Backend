@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  mmysql:
+    image: mysql:8
+    container_name: mysqldb
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: expense_tracker
+    ports:
+      - "3307:3306"
+
+  spring-boot-app:
+    build: .
+    environment:
+      MYSQL_HOST: mmysql
+      MYSQL_PORT: 3306
+      MYSQL_DB: expense_tracker
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+    ports:
+      - "8081:8080"
+    depends_on:
+      - mmysql
+
