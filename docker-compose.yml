@@ -13,11 +13,12 @@ services:
   spring-boot-app:
     build: .
     environment:
-      MYSQL_HOST: mmysql
-      MYSQL_PORT: 3306
-      MYSQL_DB: expense_tracker
-      MYSQL_USER: root
-      MYSQL_PASSWORD: root
+      DATABASE_URL: jdbc:mysql://mmysql:3306/expense_tracker 
+      DATABASE_USERNAME: root 
+      DATABASE_PASSWORD: root 
+      EMAIL_USERNAME: 17niranjanyadav@gmail.com 
+      EMAIL_PASSWORD: "wkdi qkrc sglu svoo" 
+      FRONTEND_URL: http://localhost:5173
     ports:
       - "8081:8080"
     depends_on:
